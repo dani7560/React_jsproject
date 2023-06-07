@@ -1,23 +1,22 @@
-import logo from './logo.svg';
+import { useState , useEffect} from 'react';
 import './App.css';
 
-function App() {
+
+
+const App=() =>{
+  useEffect(()=>{
+    alert('reload page'+count),[count];
+  });
+  const [count,setcount]=useState(0);
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={()=>setcount((prevcount)=>prevcount-1)}>-</button>
+      <br></br>
+      <button>{count}</button>
+      <br></br>
+      <button onClick={()=>setcount((precount)=>precount+2)}>+</button>
+
     </div>
   );
 }
